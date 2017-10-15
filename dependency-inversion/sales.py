@@ -50,6 +50,7 @@ class GoldClient(Client, AccumulablePoints):
 	def receipt(self):
 		return "The total is ", self.total_with_discount, ". You have accumulated ", self.points, "points. See you soon!"
 
+#Instead of having specific separate objects, we are depending on the abstraction Client in the class Cash Register.
 class CashRegister(object):
 	def __init__(self, clients):
 		self.clients = clients
