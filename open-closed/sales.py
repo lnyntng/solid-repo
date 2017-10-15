@@ -1,6 +1,8 @@
 from math import pi
 from abc import ABCMeta, abstractproperty
 
+# Instead of updating a single class Client, each type of client has a class and a method to get the total with the discount percentage. 
+# If there's a new type of client, we will not modify the current code but create a new class to extend the functionality
 class Client(object):
 	__metaclass__ = ABCMeta
 
@@ -15,14 +17,14 @@ class Client(object):
 class SilverClient(Client):
 	@property
 	def total_with_discount(self):
-		total =  0.90 * self.subtotal
-		return total
+		self.total =  0.90 * self.subtotal
+		return self.total
 
 class GoldClient(Client):
 	@property
 	def total_with_discount(self):
-		total = 0.70 * self.subtotal
-		return total
+		self.total = 0.70 * self.subtotal
+		return self.total
 
 class Calculator(object):
 	def __init__(self, clients):
